@@ -15,3 +15,10 @@
 ## 场景自检
 
     node check_sample.js
+
+## 语义
+
+- `clock.compare` 逐分量比较向量时钟，返回 `before` / `after` / `concurrent` / `equal`。
+- `clock.mergeClocks` 逐分量取最大，返回新时钟，不修改入参。
+- 时钟里出现 `nodes` 未声明的节点时抛出错误，错误对象 `code === "E_UNKNOWN_NODE"`。
+- 合并为单次线性遍历（不排序分量），满足交换律与幂等；`converge` 会换序重算判定是否收敛。
